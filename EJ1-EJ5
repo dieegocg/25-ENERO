@@ -1,0 +1,68 @@
+%Primer ejercicio de la actividad 1, Comprobacion del infinito%
+n=[1 10 100 500 1000 2000 4000 8000];
+f=zeros(1,8);
+for i=1:8
+    f(i)=(1+(1/n(i))).^n(i);
+end
+disp(f)
+
+%Segundo ejercicio, Matrices diagonales%
+A=[2, 6; 3, 9];
+B=[1,2;3,4];
+C=[-5,6;5,3];
+D=[0,0;0,0];
+G=[A,D,D;D,B,D;D,D,C];
+disp(G);
+
+%Tercer ejercicio, Fibonacci%
+s=50;
+f=zeros(1,s);
+a=0;
+b=1;
+f(1)=1;
+for n=2:s
+    c=a+b;
+    f(n)=c;
+    a=b;
+    b=c;
+end
+R=zeros(1,s-1);
+R(1)=1;
+for m=2:s-1
+    R(m)=f(m+1)/f(m);
+end
+disp(R)
+
+%Cuarto ejercicio, funciones graficadas%
+syms x1 x2 x3
+fx1=2+sin(x1);
+m=-10:0.1:-5;
+
+fx2=exp(x2);
+n=-5:0.1:2;
+
+fx3=log(x3.^2+1);
+o=2:0.1:10;
+
+hold on
+grid
+
+Con1=subs(fx1,x1,m);
+plot(m,Con1)
+
+Conv2=subs(fx2,x2,n);
+plot(n,Conv2)
+
+Conv3=subs(fx3,x3,o);
+plot(o,Conv3)
+
+%Quinto ejercicio, Resolver sistema de ecuaciones%
+r=10;
+E=[5 2*r r;3 6   2*r-1; 2 r-1 3*r];
+C=[2;3; 5];
+IE=inv(E);
+Sol=IE*C;
+disp(Sol)
+
+
+
